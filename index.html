@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+    <!-- Bootstrap Links -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Luxon Module -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"
+        integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="" id="over">
+
+    <div class="mainContainer">
+        <!-- NavBar Section -->
+        <div class="navbarContainer">
+            <nav class="row navbar">
+                <div class="col-3 col-sm-2">
+                    <img src="https://i.postimg.cc/wvpddxKw/clouds.png" alt="Logo">
+                </div>
+                <div class="col-3 col-sm-5 searchContainer" id="SearchContainer">
+                    <input type="text" placeholder="Enter City Name..." class="userInput" id="userInput">
+                    <i class="searchIcon fa fa-search"></i>
+                </div>
+                <button class="col-3 col-sm-3 locationButton" id="currentLocationContainer">
+                    <span class="locationIcon material-symbols-outlined">my_location</span>
+                    <p class="curLocDis">Current Location</p>
+                </button>
+            </nav>
+        </div>
+        <!-- Cards Section -->
+        <div class="containe mt-2">
+            <div class="row cards">
+                <!-- Current Weather Condition Container -->
+                <div class="col-8 col-sm-4 col-md-3 col-xl-3 m-auto curCon">
+                    <div class="containerWrapper curWeathContainer">
+                        <div class="currWethContent">
+                            <p>Now</p>
+                            <h1 id="currentTemp">15°c</h1>
+                            <p id="currentCondition">clear</p>
+                            <hr>
+                            <div class="d-flex">
+                                <span class="material-symbols-outlined">today</span>
+                                <p id="day">Wensday 2, Feb</p>
+                            </div>
+
+                            <div class="d-flex">
+                                <span class="material-symbols-outlined">location_on</span>
+                                <p id="place">Bhimavaram </p>
+                            </div>
+                        </div>
+                        <div class="curWeathimgContainer">
+                            <img src="" id="currentWeatherImg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!-- Today Highlites -->
+                <div class="col-12 col-sm-8 col-md-9 col-xl-9">
+                    <div class="contentWrapper todayHighlights">
+                        <p class="headings">Today Highlights</p>
+                        <div class="row">
+                            <!-- Air Quality Container -->
+                            <div class="col-11 col-md-6 col-lg-6 largeContainers">
+                                <div class="airQualityContainer">
+                                    <p class="label">Air Quality Index</p>
+                                    <p id="airQualityIndex">Good</p>
+                                </div>
+                                <div class="d-flex airComposistions">
+                                    <i class='bx bx-wind  icon'></i>
+                                    <div>
+                                        <p class="airinfoTitle">PM2_5</p>
+                                        <p class="airinfoTitle">(µg/m<sup>3</sup>)</p>
+                                        <h2 id="pm2_5El">5</h2>
+                                    </div>
+                                    <div>
+                                        <p class="airinfoTitle">SO<sub>2</sub></p>
+                                        <p class="airinfoTitle">(µg/m<sup>3</sup>)</p>
+                                        <h2 id="so2El">4</h2>
+                                    </div>
+                                    <div>
+                                        <p class="airinfoTitle">NO<sub>2</sub></p>
+                                        <p class="airinfoTitle">(µg/m<sup>3</sup>)</p>
+                                        <h2 id="no2El">8</h2>
+                                    </div>
+                                    <div>
+                                        <p class="airinfoTitle">O<sub>3</sub></p>
+                                        <p class="airinfoTitle">(µg/m<sup>3</sup>)</p>
+                                        <h2 id="o3El">9</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Sunrise & Sunset Container -->
+                            <div class="col-11 col-md-6 col-lg-6 largeContainers">
+                                <p class="label">Sunrise & Sunset</p>
+                                <div class="d-flex sunContainer">
+                                    <div class="d-flex">
+                                        <i class='bx bx-sun icon srstIcons'></i>
+                                        <div class="">
+                                            <p class="infoTitle">Sunrise</p>
+                                            <h2 class="srssTimmeEle" id="sunriseTimeEl">
+                                                00:00 AM
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <i class='bx bx-moon icon srstIcons'></i>
+                                        <div class="">
+                                            <p class="infoTitle">Sunset</p>
+                                            <h2 class="srssTimmeEle" id="sunsetTimeEl">
+                                                00:00 PM
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- More Details  Container-->
+                            <div class="col col-md-12">
+                                <div class="row extradetailsContainer">
+                                    <div class="col-5 col-md-3 col-lg-3 smallContainers">
+                                        <p class="label">Humidity</p>
+                                        <div class="innerContainer">
+                                            <span class="material-symbols-outlined icon">
+                                                humidity_percentage
+                                            </span>
+                                            <h2 id="humidityEl" class="innerText">74%</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 col-md-3 col-lg-3 smallContainers">
+                                        <p class="label">Pressure</p>
+                                        <div class="innerContainer">
+                                            <span class="material-symbols-outlined icon">
+                                                tire_repair
+                                            </span>
+                                            <h2 id="pressureEl" class="innerText">14hPa</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 col-md-3 col-lg-3 smallContainers">
+                                        <p class="label">Feels Like</p>
+                                        <div class="innerContainer">
+                                            <i class='bx bxs-thermometer icon'></i>
+                                            <h2 id="feelsLikeEl" class="innerText">5°c</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 col-md-3 col-lg-3 smallContainers">
+                                        <p class="label">Visibility</p>
+                                        <div class="innerContainer">
+                                            <span class="material-symbols-outlined">
+                                                visibility
+                                            </span>
+                                            <h2 id="visibilityEl" class="innerText">1 KM</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Day Forecast Data Container -->
+                <div class="m-auto col-11 col-md-8 order-md-2 col-lg-9">
+                    <div id="amCintainer"></div>
+                    <div id="pmContainer"></div>
+                </div>
+                <!-- week Forcast -->
+                <div class="col-12 col-md-4 col-lg-3 order-md-1">
+                    <div class="dayDataContainer" id="daysCon">
+                    </div>
+
+                </div>
+                <!-- Spinner -->
+                <div class="spinnerContainer" id="spinner">
+                    <p>Fetching City Data</p>
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Error card -->
+        <div class="errorCard d-none" id="errCard">
+            <div class="">
+                <img src="./Assets/Images/error-48268.png" alt="" class="errorImg">
+                <p class="mt-3">Enter a valid City</p>
+                <button class="erClo p-2 btn btn-primary " id="closeBtn">OK</button>
+            </div>
+        </div>
+        <!-- Footer Section -->
+        <footer>
+            <div class="Container">
+                <div class="row">
+                    <div class="col-12  text-center">
+                        <p>This Page is Developed by Satish Nemali</p>
+                    </div>
+                    <div class="col-12  col-sm-6 col-md-6 text-center">
+                        <p class="mt-3">Follow Me</p>
+                        <div class="linkContainer mt-5">
+                            <div class="followContainers">
+                                <a href="https://linkedin.com/in/satish-nemali" target="_blank"><i
+                                        class='bx bxl-linkedin d-block'></i></a>
+                                <a href="https://linkedin.com/in/satish-nemali" target="_blank">Linkdin</a>
+                            </div>
+                            <div class="followContainers">
+                                <a href=""><i class='bx bxl-instagram  d-block'></i></a>
+                                <a href="">Instagram</a>
+                            </div>
+                            <div class="followContainers">
+                                <a href="https://github.com/Nemali-Satish/Nemali-Satish" target="_blank"><i
+                                        class='bx bxl-github d-block'></i></a>
+                                <a href="https://github.com/Nemali-Satish/Nemali-Satish" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 text-center">
+                        <p class="mt-3">Developed Using</p>
+                        <a href="https://openweathermap.org/api" target="_blank"><img
+                                src="./Assets/Images/openweather-logo.png" class="apiImg1" alt=""></a>
+                        <a href="https://www.weatherapi.com/" target="_blank"><img
+                                src="./Assets/Images/weatherapi-PhotoRoom.png" class="apiImg2" alt=""></a>
+                    </div>
+                    <div class="col-12 text-center">
+                        <p>©️ Satish_Nemali</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="overLay" id="overLay"> </div>
+
+</body>
+<script type="module" src="./js Files/main.js"></script>
+
+</html>

@@ -1,0 +1,515 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primaryFontColor: #e7ebed;
+  --ContainerBackColor: rgba(147, 146, 146, 0.5);
+  --mainBackground: rgb(47, 46, 46);
+  --hoverBackColor: rgb(145, 34, 229);
+
+  --labelFontSize: clamp(0.625rem, 2vw + 1rem, 0.875rem);
+  --titleElFont: clamp(0.625rem, 2vw + 1rem, 0.75rem);
+}
+body {
+  background-color: var(--mainBackground);
+  
+
+}
+
+.over{
+  overflow:hidden;
+}
+
+.mainContainer {
+  max-width: 1300px;
+  margin:  auto;
+  overflow-x: hidden;
+}
+
+.overLay{
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 250vh;
+  background-color: #07051a7d;
+  backdrop-filter: blur(15px);
+  
+
+}
+
+h2{
+  font-size: clamp(0.938rem, 1vw + 0.75rem, 1.563rem);
+}
+/* /Nav Bar Styling */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  width: 100%;
+  padding: 10px;
+}
+.navbarContainer{
+  width: 100%;
+  background-color:  #07051a7d;
+  backdrop-filter: blur(15px);
+  border-radius: 5px; 
+  position:sticky;
+  top:0;
+  z-index:2; 
+
+}
+
+.navbar img {
+  width: 50px;
+  size: cover;
+}
+
+.searchContainer {
+  margin-left: auto;
+  margin-right: 10px;
+  position: relative;
+  transition: all 1s;
+  width: 50px;
+  height: 50px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  padding: 5px;
+}
+.userInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.searchIcon {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: #07051a;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+.searchContainer:hover {
+  width: 50%;
+  cursor: pointer;
+}
+
+.searchContainer:hover .userInput {
+  display: block;
+}
+
+.searchContainer:hover .searchIcon {
+  background: #07051a;
+  color: white;
+}
+
+.locationButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  border: 2px solid white;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: aliceblue;
+  cursor: pointer;
+}
+.locationIcon {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  justify-content: center;
+  background-color: transparent;
+  color: white;
+  box-sizing: border-box;
+}
+.curLocDis {
+  display: none;
+  color: aliceblue;
+}
+.locationButton:hover {
+  background-color: var(--hoverBackColor);
+  border-color: rgb(208, 205, 205);
+  transition: 1s all;
+}
+.locationButton:hover .locationIcon,
+.locationButton:hover .curLocDis {
+  color: black;
+}
+
+/* Cards Styling */
+
+.card{
+  width: 100%;
+}
+
+.curCon{
+  margin: auto 0px;
+}
+
+.containerWrapper {
+  background-color: rgba(240, 248, 255, 0.195);
+  border-radius: 25px;
+  backdrop-filter: blur(15px);
+}
+
+.largeContainers {
+  padding: 15px;
+  background-color: #221d4d63;
+  border-radius: 25px;
+  box-sizing: border-box;
+  margin: 10px auto;
+}
+
+.label {
+  font-size: var(--labelFontSize);
+}
+
+.icon {
+  font-size: clamp(2.188rem, 1vw + 2rem, 2.813rem);
+  margin: 0 5px;
+}
+/* Current Weather Data Container */
+
+.curWeathContainer {
+  height: 90%;
+  margin-left: 10px;
+  max-height: 270px;
+}
+.currWethContent {
+  padding: 20px;
+  padding-bottom: 35px;
+  color: var(--primaryFontColor);
+  position: relative;
+  z-index: -1;
+}
+.curWeathimgContainer {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  z-index: -4;
+}
+.curWeathimgContainer img {
+  height: 100%;
+  width: 100%;
+  z-index: -8;
+}
+
+#place,#day{
+  margin-left: 15px;
+  /* font-size:95%; */
+}
+
+/* Today Highlights Container */
+
+.todayHighlights {
+  padding: 20px;
+  color: var(--primaryFontColor);
+  margin: auto;
+}
+
+/* Air Composistion Container */
+
+.airQualityContainer {
+  display: flex;
+  justify-content: space-between;
+}
+#airQualityIndex {
+  background-color: rgb(96, 40, 195);
+  font-size: 15px;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 15px;
+  color: rgb(249, 249, 249);
+}
+
+.airComposistions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.airComposistions h2 {
+  font-size: clamp(0.938rem, 1vw + 1rem, 1.438rem);
+}
+
+.airinfoTitle {
+  font-size: var(--titleElFont);
+  text-align: center;
+}
+
+/* Sun Container */
+
+.sunContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10%;
+}
+
+.sunContainer i {
+  margin: auto;
+  padding-right: 10px;
+}
+/* border:2px solid red; */
+
+/* Additional data */
+
+.extradetailsContainer {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.smallContainers {
+  padding: 15px;
+  margin: 10px 5px;
+  background-color: #07051a58;
+  border-radius: 25px;
+  margin: 5px auto;
+}
+.innerContainer {
+  display: flex;
+  justify-content: space-around;
+  max-width: 380px;
+}
+
+.innerContainer h2{
+  margin-top: 5%;
+}
+
+/* Additional forecast data */
+#amCintainer,
+#pmContainer {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: scroll;
+}
+
+.extraContainer {
+  margin: 15px 10px;
+  padding: 15px 25px;
+  text-align: center;
+  border-radius: 25px;
+  color: aliceblue;
+  background-color: #07051a75;
+  width: 20%;
+  min-width: 100px;
+  max-height: 150px;
+}
+.msl{
+  margin: 10px 15px;
+}
+
+.dayDataContainer {
+  background-color: rgba(240, 248, 255, 0.195);
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 25px;
+  margin: 20px auto;
+
+  
+}
+
+.days {
+  color: azure;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+/* Footer Section */
+
+footer{
+  position: sticky;
+  top: 100%;
+  color: aliceblue;
+  background-color: #1b1928d7;
+  backdrop-filter: blur(15px);
+  padding: 15px;
+  border-radius: 30px ;
+  width:100%;
+  margin: 0px auto;
+  overflow-x: hidden;
+  max-width: 1300px;
+}
+.followContainers a{
+      text-decoration: none;
+      color: aliceblue;
+}
+
+.followContainers:hover a{
+  color: rgb(162, 0, 255);
+}
+
+.linkContainer{
+  display: flex;
+  justify-content: space-evenly;
+
+}
+.followContainers{
+
+  padding: 10px;
+}
+.followContainers i {
+  font-size: clamp(1.563rem, 2vw + 1rem, 2.188rem);
+}
+
+.apiImg1{
+  width: 25vw;
+  max-width: 100px;
+  margin-right: auto;
+}
+.apiImg2{
+  width: 35vw;
+  max-width: 150px;
+  margin-left: auto;
+}
+footer p{
+  font-size: clamp(0.538rem, 0.8vw + 0.8rem, 1.563rem);
+}
+
+
+
+
+
+
+
+
+
+/* Scroll Bar */
+
+::-webkit-scrollbar{
+  height: 2.5px;
+  
+}
+::-webkit-scrollbar-track{
+  background: #07051a4e;
+  height: 2px;
+}
+::-webkit-scrollbar-thumb{
+  background: #7367dc;
+  width: 2px;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track-piece{
+  /* Make scrollbar transparent when it is not being hovered over or clicked on */
+  -webkit-mask-image: linear-gradient(to right, black, white);
+
+}
+
+
+
+/* spinner Container */
+
+.spinnerContainer{
+
+  /* border: 2px solid red; */
+  position: fixed;
+  top: 50%;
+  left: 25%;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  width: 50vw;
+  padding: 5vh;
+  border-radius: 35px;
+  align-items: center;
+  font-size: clamp(1rem, 1vw + 1rem, 1.563rem);
+  z-index: 2;
+}
+
+/* Error Card */
+
+.errorCard{
+  
+  position: fixed;
+  top: 20%;
+  left: 20%;
+  text-align: center;
+  background-color:rgba(255, 255, 255, 0.279);
+  backdrop-filter: blur(45px);
+  color: #07051a;
+  padding: 5vh;
+  margin: auto;
+  min-width: 200px;
+  width: 50vw;
+  border-radius: 35px;
+  z-index: 2;
+  
+}
+.errorCard button{
+  min-width: 85px;
+  width: 25%;
+}
+.errorCard p{
+  font-size:2.8vh;
+  color: aliceblue;
+}
+.errorImg{
+  height: 100%;
+  width: 40%;
+  max-height: 150px;
+  max-width: 150px;
+}
+
+/* Media Quaries  */
+
+/* For TAblat and Laptops */
+
+@media only screen and (min-width: 850px) {
+  .searchContainer {
+    width: 45%;
+    margin: 5px auto;
+  }
+  .userInput{
+    display: block;
+  }
+  .locationButton {
+    border-radius: 25px;
+    width: 20%;
+    max-width: 190px;
+  }
+  .locationIcon{
+    left: 10%;
+  }
+
+  .curLocDis {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    font-size: 90%;
+    display: block;
+  }
+  .largeContainers {
+    width: 48%;
+  }
+  .smallContainers {
+    width: 24%;
+  }
+  .errorCard{
+    left: 25%;
+  }
+
+}
+
+
