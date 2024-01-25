@@ -26,7 +26,7 @@ body {
 .mainContainer {
   max-width: 1300px;
   margin:  auto;
-  overflow-x: hidden;
+/*   overflow-x: hidden; */
 }
 
 .overLay{
