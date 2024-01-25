@@ -464,7 +464,7 @@ footer p{
   min-width: 200px;
   width: 50vw;
   border-radius: 35px;
-  z-index: 2;
+  z-index: 6;
   
 }
 .errorCard button{
