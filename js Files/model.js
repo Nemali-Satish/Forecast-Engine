@@ -1,5 +1,5 @@
 let weather_API_Key = "6cdd75aa71e94b01be5153338241601";
-let openWeather_API_Key = "4b596cc96f6a203c4c0ed2d6ef6d744e";
+let openWeather_API_Key = "9d16e8de72986548c755b52be32d5500";
 
 // user Network Location
 
